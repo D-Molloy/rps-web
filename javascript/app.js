@@ -17,3 +17,13 @@
 //     printSentence('diii', h1Text, 100);
 //     playSound();
 // };
+
+$(document).ready(()=>{
+
+    $("#begin").on("click", ()=>{
+        $("#message-div").hide()
+        $("#playground").css("display", "block");  
+    })
+    
+
+})

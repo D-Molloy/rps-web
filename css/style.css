@@ -5,6 +5,7 @@
 :root {
   --green: rgb(0, 128, 0);
 }
+
 /* * {
   border: 1px solid white;
 } */
@@ -15,69 +16,139 @@ body {
   color: var(--green);
 }
 
-img{
-    max-width: 50%;
+img {
+  max-width: 50%;
+  min-width: 350px;
+  border: 4px outset var(--green);
+}
+
+.top-title {
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: calc(15px + 2vw);
+}
+
+.bot-title {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: calc(20px + 3.5vw);
+}
+
+#message-div {
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(15px + 2vw);
 }
 
 .section {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   /* justify-content: space-between; */
 }
 
+#playground{
+    display:none;
+}
+
 .player-div {
-    border: 3px dashed var(--green);
-    width: calc(99% / 2);
-  }
-  
-.user-info, #banner{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  border: 3px dashed var(--green);
+  width: calc(80% / 2);
+}
+
+.user-title {
+  text-align: center;
+  width: 100%;
+  border-bottom: 3px dashed var(--green);
+}
+
+.user-info,
+#banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.user-title,
+#options-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: calc(10px + 2vw);
 }
 
 .wins-losses-div {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  width: 100%;
 }
 
-.win-div, .loss-div{
-    width: calc(100% / 2);
+.win-div,
+.loss-div {
+  width: calc(100% / 2);
+}
+
+.wins,
+.losses,
+#user-wins,
+#user-losses,
+#enemy-wins,
+#enemy-losses {
+  font-size: calc(10px + 1.5vw);
+  margin: 5px 0;
 }
 
 .round-container {
   display: flex;
   min-height: 50px;
 }
+
 .round {
   background-color: var(--green);
+  min-height: 25px;
+  width: calc(100% / 3);
+}
 
+#options {
+  width: 80%;
+  margin: auto;
+  border: 3px dashed var(--green);
+}
+
+#options-div {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: row;
+  text-align: center;
+}
+
+.weapon {
   min-height: 50px;
-  width: calc(100% / 5);
+  min-width: 200px;
+  max-width: 300px;
+  width: calc(99% / 3);
+  margin: 5px;
+  color: black;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--green);
+
+  text-align: center;
 }
 
-#options{
-    flex-direction: column;
+.weapon-title {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: calc(15px + 2vw);
+  font-weight: bold;
+}
+.round,
+.weapon {
+  border: 1px solid black;
 }
 
-#options-div{
-    display: flex;
-    flex-direction: row;
-}
-
-.weapon{
-    min-height: 75px;
-    width: calc(100% / 3);
-    color: black;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--green);
-    font-size: 3em;
-    text-align: center;
-}
-
-.round, .weapon {
-    border: 1px solid black;
+.weapon:hover {
+  background-color: rgb(0, 83, 0);
+  border: 2px outset var(--green);
 }

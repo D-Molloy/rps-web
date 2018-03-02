@@ -20,82 +20,91 @@
             ROCK/PAPER/SCISSORS
         </p>
     </div>
+    <div class="section" id="message-div">
+        <p </p>
+        <p id="message">First to 5 wins</p>
+        <div class="weapon" id="begin">
+            <div>
+                <p class="weapon-title">BEGIN</p>
+            </div>
+        </div>
+    </div>
+    <div id="playground">
+        <div class="section" id="scoreboard">
+            <div class="player-div" id="user">
+                <div class="user-info">
+                    <p class="user-title">Player</p>
+                    <div class="wins-losses-div">
+                        <div class="win-div">
+                            <p class="wins">Wins:
 
-    <div class="section" id="scoreboard">
-        <div class="player-div" id="user">
-            <div class="user-info">
-                <p class="user-title">Player</p>
-                <div class="wins-losses-div">
-                    <div class="win-div">
-                        <p class="wins">Wins:
-                            <span id="user-wins"></span>
-                        </p>
+                            </p>
+                            <p id="user-wins">0</p>
                         </div>
                         <div class="win-div">
-                        <p class="losses">Losses:
-                            <span id="user-losses"></span>
-                        </p>
+                            <p class="losses">Losses:
+
+                            </p>
+                            <p id="user-losses">0</p>
+                        </div>
                     </div>
                 </div>
+                <div class="round-container" id="round-user">
+                    <!-- append these divs using jquery -->
+                    <div class="round"></div>
+                    <div class="round"></div>
+                    <div class="round"></div>
+                </div>
             </div>
-            <div class="round-container" id="round-user">
-                <!-- append these divs using jquery -->
-                <div class="round"></div>
-                <div class="round"></div>
-                <div class="round"></div>
-                <div class="round"></div>
-                <div class="round"></div>
+            <div class="player-div" id="enemy">
+                <div class="user-info">
+                    <p class="user-title">Enemy</p>
+                    <div class="wins-losses-div">
+                        <div class="win-div">
+                            <p class="wins">Wins:
+                            </p>
+                            <p id="enemy-wins">0</p>
+                        </div>
+                        <div class="loss-div">
+                            <p class="losses">Losses:
+                            </p>
+                            <p id="enemy-losses">0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="round-container" id="round-user">
+                    <!-- append these divs using jquery -->
+                    <div class="round"></div>
+                    <div class="round"></div>
+                    <div class="round"></div>
+                </div>
             </div>
         </div>
-        <div class="player-div" id="enemy">
-            <div class="user-info">
-                <p class="user-title">Enemy</p>
-                <div class="wins-losses-div">
-                    <div class="win-div">
-                        <p class="wins">Wins:
-                            <span id="enemy-wins"></span>
-                        </p>
+        <!-- Add a div showing current choices -->
+        <div class="section" id="options">
+            <p id="options-title">Choose Your Weapon:</p>
+            <div id="options-div">
+                <div class="weapon" id="rock">
+                    <div>
+                        <p class="weapon-title">ROCK</p>
                     </div>
-                    <div class="loss-div">
-                        <p class="losses">Losses:
-                            <span id="enemy-losses"></span>
-                        </p>
+                </div>
+                <div class="weapon" id="paper">
+                    <div>
+                        <p class="weapon-title">PAPER</p>
+                    </div>
+                </div>
+                <div class="weapon" id="scissor">
+                    <div>
+                        <p class="weapon-title">SCISSORS</p>
                     </div>
                 </div>
             </div>
-            <div class="round-container" id="round-user">
-                <!-- append these divs using jquery -->
-                <div class="round"></div>
-                <div class="round"></div>
-                <div class="round"></div>
-                <div class="round"></div>
-                <div class="round"></div>
-            </div>
+
         </div>
     </div>
-    <div class="section" id="options">
-        <p id="options-title">Choose Your Weapon:</p>
-        <div id="options-div">
-            <div class="weapon" id="rock">
-                <div>
-                    <p>ROCK</p>
-                </div>
-            </div>
-            <div class="weapon" id="paper">
-                <div>
-                    <p>PAPER</p>
-                </div>
-            </div>
-            <div class="weapon" id="scissor">
-                <div>
-                    <p>SCISSOR</p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
     <script src="javascript/app.js"></script>
 </body>
 
