@@ -1,18 +1,83 @@
-@font-face { font-family: Terminal; src: url('Glass_TTY_VT220.ttf'); }
-:root {
-    --green:rgb(0,128,0);
+@font-face {
+  font-family: Terminal;
+  src: url("../assets/Glass_TTY_VT220.ttf");
 }
-*{border: 1px solid white;}
+:root {
+  --green: rgb(0, 128, 0);
+}
+/* * {
+  border: 1px solid white;
+} */
 
 body {
-    background-color: black;
-    font-family: Terminal, monospace;
-    color: var(--green);
-    }
+  background-color: black;
+  font-family: Terminal, monospace;
+  color: var(--green);
+}
 
+img{
+    max-width: 50%;
+}
 
-.round{
-    background-color: var(--green);
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+}
+
+.player-div {
+    border: 3px dashed var(--green);
+    width: calc(99% / 2);
+  }
+  
+.user-info, #banner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wins-losses-div {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    width: 100%;
+}
+
+.win-div, .loss-div{
+    width: calc(100% / 2);
+}
+
+.round-container {
+  display: flex;
+  min-height: 50px;
+}
+.round {
+  background-color: var(--green);
+
+  min-height: 50px;
+  width: calc(100% / 5);
+}
+
+#options{
+    flex-direction: column;
+}
+
+#options-div{
+    display: flex;
+    flex-direction: row;
+}
+
+.weapon{
     min-height: 75px;
-    width: calc(100% / 5);
+    width: calc(100% / 3);
+    color: black;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--green);
+    font-size: 3em;
+    text-align: center;
+}
+
+.round, .weapon {
+    border: 1px solid black;
 }

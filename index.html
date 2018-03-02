@@ -10,16 +10,15 @@
 </head>
 
 <body>
-    <div class="section"  id="banner">
+
+    <div class="section" id="banner">
         <img src="assets/rps.PNG">
-        <div id="title">
-            <p class="top-title">
-                Global Thermonuclear
-            </p>
-            <p class="bot-title">
-                ROCK/PAPER/SCISSORS
-            </p>
-        </div>
+        <p class="top-title">
+            Global Thermonuclear
+        </p>
+        <p class="bot-title">
+            ROCK/PAPER/SCISSORS
+        </p>
     </div>
 
     <div class="section" id="scoreboard">
@@ -27,12 +26,16 @@
             <div class="user-info">
                 <p class="user-title">Player</p>
                 <div class="wins-losses-div">
-                    <p class="wins">Wins:
-                        <span id="user-wins"></span>
-                    </p>
-                    <p class="losses">Losses:
-                        <span id="user-losses"></span>
-                    </p>
+                    <div class="win-div">
+                        <p class="wins">Wins:
+                            <span id="user-wins"></span>
+                        </p>
+                        </div>
+                        <div class="win-div">
+                        <p class="losses">Losses:
+                            <span id="user-losses"></span>
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="round-container" id="round-user">
@@ -48,12 +51,16 @@
             <div class="user-info">
                 <p class="user-title">Enemy</p>
                 <div class="wins-losses-div">
-                    <p class="wins">Wins:
-                        <span id="enemy-wins"></span>
-                    </p>
-                    <p class="losses">Losses:
-                        <span id="enemy-losses"></span>
-                    </p>
+                    <div class="win-div">
+                        <p class="wins">Wins:
+                            <span id="enemy-wins"></span>
+                        </p>
+                    </div>
+                    <div class="loss-div">
+                        <p class="losses">Losses:
+                            <span id="enemy-losses"></span>
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="round-container" id="round-user">
@@ -69,11 +76,23 @@
     <div class="section" id="options">
         <p id="options-title">Choose Your Weapon:</p>
         <div id="options-div">
-            <div class="weapon" id="paper">PAPER</div>
-            <div class="weapon" id="rock">ROCK</div>
-            <div class="weapon" id="scissor">SCISSOR</div>
+            <div class="weapon" id="rock">
+                <div>
+                    <p>ROCK</p>
+                </div>
+            </div>
+            <div class="weapon" id="paper">
+                <div>
+                    <p>PAPER</p>
+                </div>
+            </div>
+            <div class="weapon" id="scissor">
+                <div>
+                    <p>SCISSOR</p>
+                </div>
+            </div>
         </div>
-        
+
     </div>
 
 
