@@ -1,0 +1,18 @@
+@font-face { font-family: Terminal; src: url('Glass_TTY_VT220.ttf'); }
+:root {
+    --green:rgb(0,128,0);
+}
+*{border: 1px solid white;}
+
+body {
+    background-color: black;
+    font-family: Terminal, monospace;
+    color: var(--green);
+    }
+
+
+.round{
+    background-color: var(--green);
+    min-height: 75px;
+    width: calc(100% / 5);
+}
