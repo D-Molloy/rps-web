@@ -34,7 +34,7 @@ $(document).ready(() => {
       case "win":
         $("#song").attr("src", sounds.win);
         break;
-      case "lost":
+      case "loss":
         $("#song").attr("src", sounds.loss);
     }
 
@@ -47,38 +47,88 @@ $(document).ready(() => {
   let userChoice;
   let enemyChoice;
   const choices = ["ROCK", "PAPER", "SCISSORS"];
-  let random = Math.floor(Math.random() * 3);
+  
 
   const playRound = (userAtt, enemyAtt) => {
     $("#action-enemy-choice").text(enemyChoice);
     playSound("round");
+    // figure out the round div
 
     if (userAtt === "ROCK" && enemyAtt === "SCISSORS") {
       wins++;
+      setTimeout(() => {
+          playSound("win");
+          $("#user-wins").text(wins);
+          $("#enemy-losses").text(wins);
+          $("#action-user-choice").text("");
+          $("#action-enemy-choice").text("");
+      }, 1000)
     }
 
     if (userAtt === "ROCK" && enemyAtt === "PAPER") {
       losses++;
+      setTimeout(() => {
+        playSound("loss");
+        $("#user-losses").text(losses);
+        $("#enemy-wins").text(losses);
+        $("#action-user-choice").text("");
+        $("#action-enemy-choice").text("");
+    }, 1000)
     }
 
     if (userAtt === "SCISSORS" && enemyAtt === "ROCK") {
       losses++;
+      setTimeout(() => {
+        playSound("loss");
+        $("#user-losses").text(losses);
+        $("#enemy-wins").text(losses);
+        $("#action-user-choice").text("");
+        $("#action-enemy-choice").text("");
+    }, 1000)
     }
 
     if (userAtt === "SCISSORS" && enemyAtt === "PAPER") {
       wins++;
+      setTimeout(() => {
+          playSound("win");
+          $("#user-wins").text(wins);
+          $("#enemy-losses").text(wins);
+          $("#action-user-choice").text("");
+          $("#action-enemy-choice").text("");
+      }, 1000)
     }
 
     if (userAtt === "PAPER" && enemyAtt === "ROCK") {
       wins++;
+      setTimeout(() => {
+          playSound("win");
+          $("#user-wins").text(wins);
+          $("#enemy-losses").text(wins);
+          $("#action-user-choice").text("");
+          $("#action-enemy-choice").text("");
+      }, 1000)
     }
 
     if (userAtt === "PAPER"&& enemyAtt === "SCISSORS") {
       losses++;
+      setTimeout(() => {
+        playSound("loss");
+        $("#user-losses").text(losses);
+        $("#enemy-wins").text(losses);
+        $("#action-user-choice").text("");
+        $("#action-enemy-choice").text("");
+    }, 1000)
     }
 
     if (userAtt === enemyAtt) {
-      ties++;
+      draws++;
+      setTimeout(() => {
+        playSound("round");
+        $("#user-draws").text(draws);
+        $("#enemy-draws").text(draws);
+        $("#action-user-choice").text("");
+        $("#action-enemy-choice").text("");
+    }, 1000)
     }
   }; //end playRound
 
@@ -96,6 +146,7 @@ $(document).ready(() => {
   });
 
   $(".weapon").on("click", function() {
+    let random = Math.floor(Math.random() * 3);
     userChoice = $(this)
       .text()
       .trim();
