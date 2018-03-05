@@ -18,8 +18,8 @@ body {
 
 img {
     margin-top: 50px;
-  max-width: 50%;
-  min-width: 350px;
+  max-width: 30%;
+  min-width: 200px;
   border: 4px outset var(--green);
 }
 
@@ -52,6 +52,18 @@ img {
 #message-rule{
     font-size: calc(15px + 2vw);
 }
+#begin{
+ 
+        min-height: 50px;
+        width: 300px;
+        margin: 5px;
+        color: black;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--green);
+        text-align: center;
+      
+}
 
 .section {
   display: flex;
@@ -69,7 +81,7 @@ img {
   width: calc(80% / 2);
 }
 
-.user-title {
+.user-title, #action-title, #options-title {
   text-align: center;
   width: 100%;
   border-bottom: 3px dashed var(--green);
@@ -82,6 +94,7 @@ img {
   align-items: center;
 }
 .user-title,
+.action-title-text,
 #options-title {
   margin-top: 0;
   margin-bottom: 0;
@@ -102,13 +115,18 @@ img {
 
 .wins,
 .losses,
+.draws,
 #user-wins,
 #user-losses,
+#user-draws,
 #enemy-wins,
-#enemy-losses {
+#enemy-losses,
+#enemy-draws  {
   font-size: calc(10px + 1.5vw);
   margin: 5px 0;
 }
+
+
 
 .round-container {
   display: flex;
@@ -120,6 +138,41 @@ img {
   min-height: 25px;
   width: calc(100% / 3);
 }
+
+#action{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    border: 3px dashed var(--green);
+    margin: auto;
+}
+
+
+.action-round{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.action-player{
+    width: 30%;
+    border: 3px dashed var(--green);
+    text-align: center;
+}
+
+.action-round-title{
+    font-size: calc(10px + 1.5vw);
+}
+
+#action-user-choice,
+#action-enemy-choice{
+    font-size: calc(10px + 2vw);
+}
+
+
+
 
 #options {
   width: 80%;
@@ -146,7 +199,6 @@ img {
   justify-content: center;
   align-items: center;
   background-color: var(--green);
-
   text-align: center;
 }
 
