@@ -18,7 +18,8 @@ $(document).ready(() => {
       spangled: "assets/spangled.mp3",
       round: "assets/round.wav",
       win: "assets/win.wav",
-      loss: "assets/loss.wav"
+      loss: "assets/loss.wav",
+      end: "assets/end.wav"
     };
 
     switch (cue) {
@@ -36,6 +37,9 @@ $(document).ready(() => {
         break;
       case "loss":
         $("#song").attr("src", sounds.loss);
+        break;
+      case "end":
+        $("#song").attr("src", sounds.end);
     }
 
     $("#song").trigger("play");
@@ -47,22 +51,34 @@ $(document).ready(() => {
   let userChoice;
   let enemyChoice;
   const choices = ["ROCK", "PAPER", "SCISSORS"];
-  
+
+
+const checkWins=()=>{
+    if (wins === 3) {
+        playSound("end");
+      }
+}
 
   const playRound = (userAtt, enemyAtt) => {
+ 
+
+
     $("#action-enemy-choice").text(enemyChoice);
     playSound("round");
+
+    //need to implement rounds (not increment wins)
     // figure out the round div
+    //remove win/loss sounds from inside timeouts
 
     if (userAtt === "ROCK" && enemyAtt === "SCISSORS") {
       wins++;
       setTimeout(() => {
-          playSound("win");
-          $("#user-wins").text(wins);
-          $("#enemy-losses").text(wins);
-          $("#action-user-choice").text("");
-          $("#action-enemy-choice").text("");
-      }, 1000)
+        playSound("win");
+        $("#user-wins").text(wins);
+        $("#enemy-losses").text(wins);
+        $("#action-user-choice").text("");
+        $("#action-enemy-choice").text("");
+      }, 1000);
     }
 
     if (userAtt === "ROCK" && enemyAtt === "PAPER") {
@@ -73,7 +89,7 @@ $(document).ready(() => {
         $("#enemy-wins").text(losses);
         $("#action-user-choice").text("");
         $("#action-enemy-choice").text("");
-    }, 1000)
+      }, 1000);
     }
 
     if (userAtt === "SCISSORS" && enemyAtt === "ROCK") {
@@ -84,32 +100,32 @@ $(document).ready(() => {
         $("#enemy-wins").text(losses);
         $("#action-user-choice").text("");
         $("#action-enemy-choice").text("");
-    }, 1000)
+      }, 1000);
     }
 
     if (userAtt === "SCISSORS" && enemyAtt === "PAPER") {
       wins++;
       setTimeout(() => {
-          playSound("win");
-          $("#user-wins").text(wins);
-          $("#enemy-losses").text(wins);
-          $("#action-user-choice").text("");
-          $("#action-enemy-choice").text("");
-      }, 1000)
+        playSound("win");
+        $("#user-wins").text(wins);
+        $("#enemy-losses").text(wins);
+        $("#action-user-choice").text("");
+        $("#action-enemy-choice").text("");
+      }, 1000);
     }
 
     if (userAtt === "PAPER" && enemyAtt === "ROCK") {
       wins++;
       setTimeout(() => {
-          playSound("win");
-          $("#user-wins").text(wins);
-          $("#enemy-losses").text(wins);
-          $("#action-user-choice").text("");
-          $("#action-enemy-choice").text("");
-      }, 1000)
+        playSound("win");
+        $("#user-wins").text(wins);
+        $("#enemy-losses").text(wins);
+        $("#action-user-choice").text("");
+        $("#action-enemy-choice").text("");
+      }, 1000);
     }
 
-    if (userAtt === "PAPER"&& enemyAtt === "SCISSORS") {
+    if (userAtt === "PAPER" && enemyAtt === "SCISSORS") {
       losses++;
       setTimeout(() => {
         playSound("loss");
@@ -117,7 +133,7 @@ $(document).ready(() => {
         $("#enemy-wins").text(losses);
         $("#action-user-choice").text("");
         $("#action-enemy-choice").text("");
-    }, 1000)
+      }, 1000);
     }
 
     if (userAtt === enemyAtt) {
@@ -128,8 +144,11 @@ $(document).ready(() => {
         $("#enemy-draws").text(draws);
         $("#action-user-choice").text("");
         $("#action-enemy-choice").text("");
-    }, 1000)
+      }, 1000);
     }
+
+    checkWins();
+
   }; //end playRound
 
   $("#begin").on("click", () => {
