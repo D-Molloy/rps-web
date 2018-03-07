@@ -45,6 +45,12 @@ $(document).ready(() => {
     $("#song").trigger("play");
   }
 
+  const resetVars = () => {
+    wins = 0;
+    losses = 0;
+    draws = 0;
+  };
+
   let wins = 0;
   let losses = 0;
   let draws = 0;
@@ -52,106 +58,133 @@ $(document).ready(() => {
   let enemyChoice;
   const choices = ["ROCK", "PAPER", "SCISSORS"];
 
-
-const checkWins=()=>{
+  const checkWins = () => {
     if (wins === 3) {
-        playSound("end");
-      }
-}
+      playSound("end");
+      $("#playground").css("display", "none");
+      $("#message, #message-rule").hide();
+      //   $("#message-rule").hide()
+      $("#end-text, #end-ask").show();
+      $("#message-div").show();
+      printString("end-text", "A WINNER IS YOU!", 100);
+      setTimeout(() => {
+        printString("end-ask", "Play again?", 100);
+        $("#begin").fadeIn(5000);
+      }, 1000);
+    } else if (losses === 3) {
+      playSound("end");
+      $("#playground").css("display", "none");
+      $("#message").toggleClass("fade");
+      $("#message, #message-rule").hide();
+      //   $("#message-rule").hide()
+      $("#end-text, #end-ask").show();
+      $("#message-div").show();
+      printString("end-text", "LOSER! ALL YOUR BASE BELONG TO US!", 100);
+      setTimeout(() => {
+        printString("end-ask", "Play again?", 100);
+        $("#begin").fadeIn(5000);
+      }, 1000);
+    } else {
+      $("#options").show();
+    }
+  };
+
+  const clearChoices = () => {
+    $("#action-user-choice").text("");
+    $("#action-enemy-choice").text("");
+  };
 
   const playRound = (userAtt, enemyAtt) => {
- 
-
-
     $("#action-enemy-choice").text(enemyChoice);
     playSound("round");
 
-    //need to implement rounds (not increment wins)
-    // figure out the round div
     //remove win/loss sounds from inside timeouts
 
     if (userAtt === "ROCK" && enemyAtt === "SCISSORS") {
       wins++;
+      playSound("win");
+      $("#user-wins").text(wins);
+      $("#enemy-losses").text(wins);
       setTimeout(() => {
-        playSound("win");
-        $("#user-wins").text(wins);
-        $("#enemy-losses").text(wins);
-        $("#action-user-choice").text("");
-        $("#action-enemy-choice").text("");
+        clearChoices();
+        checkWins();
       }, 1000);
     }
 
     if (userAtt === "ROCK" && enemyAtt === "PAPER") {
       losses++;
+      playSound("loss");
+      $("#user-losses").text(losses);
+      $("#enemy-wins").text(losses);
       setTimeout(() => {
-        playSound("loss");
-        $("#user-losses").text(losses);
-        $("#enemy-wins").text(losses);
-        $("#action-user-choice").text("");
-        $("#action-enemy-choice").text("");
+        clearChoices();
+        checkWins();
       }, 1000);
     }
 
     if (userAtt === "SCISSORS" && enemyAtt === "ROCK") {
       losses++;
+      playSound("loss");
+      $("#user-losses").text(losses);
+      $("#enemy-wins").text(losses);
       setTimeout(() => {
-        playSound("loss");
-        $("#user-losses").text(losses);
-        $("#enemy-wins").text(losses);
-        $("#action-user-choice").text("");
-        $("#action-enemy-choice").text("");
+        clearChoices();
+        checkWins();
       }, 1000);
     }
 
     if (userAtt === "SCISSORS" && enemyAtt === "PAPER") {
       wins++;
+      playSound("win");
+      $("#user-wins").text(wins);
+      $("#enemy-losses").text(wins);
       setTimeout(() => {
-        playSound("win");
-        $("#user-wins").text(wins);
-        $("#enemy-losses").text(wins);
-        $("#action-user-choice").text("");
-        $("#action-enemy-choice").text("");
+        clearChoices();
+        checkWins();
       }, 1000);
     }
 
     if (userAtt === "PAPER" && enemyAtt === "ROCK") {
       wins++;
+      playSound("win");
+      $("#user-wins").text(wins);
+      $("#enemy-losses").text(wins);
       setTimeout(() => {
-        playSound("win");
-        $("#user-wins").text(wins);
-        $("#enemy-losses").text(wins);
-        $("#action-user-choice").text("");
-        $("#action-enemy-choice").text("");
+        clearChoices();
+        checkWins();
       }, 1000);
     }
 
     if (userAtt === "PAPER" && enemyAtt === "SCISSORS") {
       losses++;
+      playSound("loss");
+      $("#user-losses").text(losses);
+      $("#enemy-wins").text(losses);
       setTimeout(() => {
-        playSound("loss");
-        $("#user-losses").text(losses);
-        $("#enemy-wins").text(losses);
-        $("#action-user-choice").text("");
-        $("#action-enemy-choice").text("");
+        clearChoices();
+        checkWins();
       }, 1000);
     }
 
     if (userAtt === enemyAtt) {
       draws++;
+      playSound("round");
+      $("#user-draws").text(draws);
+      $("#enemy-draws").text(draws);
       setTimeout(() => {
-        playSound("round");
-        $("#user-draws").text(draws);
-        $("#enemy-draws").text(draws);
-        $("#action-user-choice").text("");
-        $("#action-enemy-choice").text("");
+        clearChoices();
+        checkWins();
       }, 1000);
     }
-
-    checkWins();
-
   }; //end playRound
 
   $("#begin").on("click", () => {
+    $("#end-text, #end-ask").hide();
+    resetVars();
+    $("#message-rule")
+      .empty()
+      .show();
+    $("#options").show();
     $(".fade").fadeOut("slow");
     $("#begin").toggleClass("weapon");
     setTimeout(() => {
@@ -165,6 +198,7 @@ const checkWins=()=>{
   });
 
   $(".weapon").on("click", function() {
+    $("#options").hide();
     let random = Math.floor(Math.random() * 3);
     userChoice = $(this)
       .text()
