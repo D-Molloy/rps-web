@@ -45,11 +45,7 @@ $(document).ready(() => {
     $("#song").trigger("play");
   }
 
-  const resetVars = () => {
-    wins = 0;
-    losses = 0;
-    draws = 0;
-  };
+
 
   let wins = 0;
   let losses = 0;
@@ -57,9 +53,17 @@ $(document).ready(() => {
   let userChoice;
   let enemyChoice;
   const choices = ["ROCK", "PAPER", "SCISSORS"];
+  
+  const resetVars = () => {
+    wins = 0;
+    losses = 0;
+    draws = 0;
+    $("#user-losses, #user-wins, #user-draws, #enemy-wins, #enemy-losses, #enemy-draws").text(wins);
+  };
 
   const checkWins = () => {
     if (wins === 3) {
+        resetVars()
       playSound("end");
       $("#playground").css("display", "none");
       $("#message, #message-rule").hide();
@@ -72,6 +76,7 @@ $(document).ready(() => {
         $("#begin").fadeIn(5000);
       }, 1000);
     } else if (losses === 3) {
+    resetVars()
       playSound("end");
       $("#playground").css("display", "none");
       $("#message").toggleClass("fade");
@@ -179,8 +184,8 @@ $(document).ready(() => {
   }; //end playRound
 
   $("#begin").on("click", () => {
+    $("#end-text, #end-ask").empty();
     $("#end-text, #end-ask").hide();
-    resetVars();
     $("#message-rule")
       .empty()
       .show();
